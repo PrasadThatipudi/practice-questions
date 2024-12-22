@@ -106,12 +106,12 @@ const joinedArraysOf = function (arrayOfArrays) {
 };
 
 // repeat strings in ["hi", "bye"] => ["hihi", "byebye"]
-const stringRepeat = function (string) {
+const repeatedString = function (string) {
   return string.repeat(2);
 };
 
 const repeatedStringsOf = function (strings) {
-  return strings.map(stringRepeat);
+  return strings.map(repeatedString);
 };
 
 // // count vowels in ["apple", "banana", "grape"] => [2, 3, 2]
