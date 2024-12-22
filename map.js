@@ -114,8 +114,30 @@ const repeatedStringsOf = function (strings) {
   return strings.map(repeatedString);
 };
 
-// // count vowels in ["apple", "banana", "grape"] => [2, 3, 2]
-// const countVowelsOf = function (strings) { };
+// count vowels in ["apple", "banana", "grape"] => [2, 3, 2]
+const stringFilter = function (predicate) {
+  return function (string) {
+    return string.split("").filter(predicate).join("");
+  };
+};
+
+const isVowel = function (char) {
+  const vowels = "aeiou";
+
+  return vowels.includes(char.toLowerCase());
+};
+
+const concatVowels = function (string) {
+  return stringFilter(isVowel)(string);
+};
+
+const vowelCount = function (string) {
+  return stringLength(concatVowels(string));
+};
+
+const countVowelsOf = function (strings) {
+  return strings.map(vowelCount);
+};
 
 // // reverse arrays of [[1, 2, 3], [4, 5, 6]] => [[3, 2, 1], [6, 5, 4]]
 // const reversedArraysOf = function (arrays) { };
