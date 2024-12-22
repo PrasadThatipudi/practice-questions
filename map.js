@@ -78,8 +78,14 @@ const charCodesOf = function (characters) {
   });
 };
 
-// // extract domain names from ["user1@gmail.com", "admin@yahoo.com"] => ["gmail.com", "yahoo.com"]
-// const domainNamesOf = function (emails) { };
+// extract domain names from ["user1@gmail.com", "admin@yahoo.com"] => ["gmail.com", "yahoo.com"]
+const extractDomainName = function (email) {
+  return email.slice(email.indexOf("@") + 1, email.length);
+};
+
+const domainNamesOf = function (emails) {
+  return emails.map(extractDomainName);
+};
 
 // // split words in ["hello world", "goodbye moon"] => [["hello", "world"], ["goodbye", "moon"]]
 // const splitWordsOf = function (strings) { };
