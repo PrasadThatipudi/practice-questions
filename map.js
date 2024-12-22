@@ -96,8 +96,14 @@ const splitWordsOf = function (sentences) {
   return sentences.map(wordsOf);
 };
 
-// // join arrays of [["a", "b"], ["c", "d"]] => ["ab", "cd"]
-// const joinedArraysOf = function (arrayOfArrays) { };
+// join arrays of [["a", "b"], ["c", "d"]] => ["ab", "cd"]
+const joinArray = function (array) {
+  return array.join("");
+};
+
+const joinedArraysOf = function (arrayOfArrays) {
+  return arrayOfArrays.map(joinArray);
+};
 
 // // repeat strings in ["hi", "bye"] => ["hihi", "byebye"]
 // const repeatedStringsOf = function (strings) { };
