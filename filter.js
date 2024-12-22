@@ -67,12 +67,16 @@ const filterLongBooks = function (books) {
 };
 
 // users with incomplete profiles [{username: "alice", profileComplete: true}, {username: "bob", profileComplete: false}] => [{username: "bob", profileComplete: false}]
+
 const filterIncompleteProfiles = function (users) {
   return users.filter(objectComparator(false, isEqual, "profileComplete"));
 };
 
-// // students with grades above 80 [{name: "John", grade: 75}, {name: "Jane", grade: 85}] => [{name: "Jane", grade: 85}]
-// const filterHighGrades = function (students) { };
+// students with grades above 80 [{name: "John", grade: 75}, {name: "Jane", grade: 85}] => [{name: "Jane", grade: 85}]
+
+const filterHighGrades = function (students) {
+  return students.filter(objectComparator(80, isGreaterThan, "grade"));
+};
 
 // // products that are in stock [{product: "apple", inStock: true}, {product: "banana", inStock: false}] => [{product: "apple", inStock: true}]
 // const filterInStockProducts = function (products) { };
