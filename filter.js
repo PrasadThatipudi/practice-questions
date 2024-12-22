@@ -32,14 +32,14 @@ const filterLongWords = function (words) {
 // people older than 30 [{name: "Alice", age: 25}, {name: "Bob", age: 35}] => 
 // [{name: "Bob", age: 35}]
 
-const isAgeGreaterThan = function (threshold) {
+const objectComparator = function (threshold, predicate) {
   return function (person) {
-    return isGreaterThan(threshold)(person.age);
+    return predicate(threshold)(person.age);
   };
 };
 
 const filterAdults = function (people) {
-  return people.filter(isAgeGreaterThan(30));
+  return people.filter(objectComparator(30, isGreaterThan));
 };
 
 // active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
