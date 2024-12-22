@@ -31,9 +31,10 @@ const filterLongWords = function (words) {
 
 // people older than 30 [{name: "Alice", age: 25}, {name: "Bob", age: 35}] => 
 // [{name: "Bob", age: 35}]
+
 const isAgeGreaterThan = function (threshold) {
-  return function (object) {
-    return isGreaterThan(threshold)(object.age);
+  return function (person) {
+    return isGreaterThan(threshold)(person.age);
   };
 };
 
@@ -41,8 +42,8 @@ const filterAdults = function (people) {
   return people.filter(isAgeGreaterThan(30));
 };
 
-// // active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
-// const filterActiveUsers = function (users) { };
+// active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
+const filterActiveUsers = function (users) { };
 
 // // numbers greater than 10 [5, 12, 7, 18, 3] => [12, 18]
 // const filterNumbersGreaterThanTen = function (numbers) { };
