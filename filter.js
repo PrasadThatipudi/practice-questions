@@ -7,8 +7,22 @@ const filterEvenNumbers = function (numbers) {
   return numbers.filter(isEven);
 };
 
-// words with more than 5 letters ["apple", "banana", "kiwi", "grape"] => ["banana"]
-const filterLongWords = function (words) { };
+// words with more than 5 letters ["apple", "banana", "kiwi", "grape"] => 
+// ["banana"]
+
+const stringLength = function (string) {
+  return string.length;
+};
+
+const isWordLongerThan = function (threshold) {
+  return function (word) {
+    return stringLength(word) > threshold;
+  };
+};
+
+const filterLongWords = function (words) {
+  return words.filter(isWordLongerThan(5));
+};
 
 // // people older than 30 [{name: "Alice", age: 25}, {name: "Bob", age: 35}] => [{name: "Bob", age: 35}]
 // const filterAdults = function (people) { };
