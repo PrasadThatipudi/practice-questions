@@ -66,8 +66,10 @@ const filterLongBooks = function (books) {
   return books.filter(objectComparator(200, isGreaterThan, "pages"));
 };
 
-// // users with incomplete profiles [{username: "alice", profileComplete: true}, {username: "bob", profileComplete: false}] => [{username: "bob", profileComplete: false}]
-// const filterIncompleteProfiles = function (users) { };
+// users with incomplete profiles [{username: "alice", profileComplete: true}, {username: "bob", profileComplete: false}] => [{username: "bob", profileComplete: false}]
+const filterIncompleteProfiles = function (users) {
+  return users.filter(objectComparator(false, isEqual, "profileComplete"));
+};
 
 // // students with grades above 80 [{name: "John", grade: 75}, {name: "Jane", grade: 85}] => [{name: "Jane", grade: 85}]
 // const filterHighGrades = function (students) { };
