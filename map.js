@@ -49,8 +49,8 @@ const reversedStringsOf = function (strings) {
 };
 
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
-const doubleLetterWord = function (string) {
-  return [...string].map(function (char) { return char.repeat(2); }).join("");
+const doubleLetterWord = function ([...string]) {
+  return string.map(function (char) { return char.repeat(2); }).join("");
 };
 
 const doubleLettersOf = function (strings) {
@@ -68,7 +68,7 @@ const negatedBooleansOf = function (booleans) {
 // Use the `charCodeAt` method on each string
 const charCodesOf = function (characters) {
   return characters.map(function (char) {
-    return char.charCodeAt();
+    return char.charCodeAt(0);
   });
 };
 
