@@ -44,7 +44,15 @@ const filterAdults = function (people) {
 
 // active users [{username: "alice", active: true}, {username: "bob", active: 
 // false}] => [{username: "alice", active: true}]
-const filterActiveUsers = function (users) { };
+const isEqual = function (threshold) {
+  return function (element) {
+    return threshold === element;
+  };
+};
+
+const filterActiveUsers = function (users) {
+  return users.filter(objectComparator(true, isEqual, "active"));
+};
 
 // // numbers greater than 10 [5, 12, 7, 18, 3] => [12, 18]
 // const filterNumbersGreaterThanTen = function (numbers) { };
