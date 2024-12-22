@@ -87,8 +87,14 @@ const domainNamesOf = function (emails) {
   return emails.map(extractDomainName);
 };
 
-// // split words in ["hello world", "goodbye moon"] => [["hello", "world"], ["goodbye", "moon"]]
-// const splitWordsOf = function (strings) { };
+// split words in ["hello world", "goodbye moon"] => [["hello", "world"], ["goodbye", "moon"]]
+const wordsOf = function (sentence) {
+  return sentence.split(" ");
+};
+
+const splitWordsOf = function (sentences) {
+  return sentences.map(wordsOf);
+};
 
 // // join arrays of [["a", "b"], ["c", "d"]] => ["ab", "cd"]
 // const joinedArraysOf = function (arrayOfArrays) { };
