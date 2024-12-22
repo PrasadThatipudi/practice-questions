@@ -57,8 +57,12 @@ const doubleLettersOf = function (strings) {
   return strings.map(doubleLetterWord);
 };
 
-// // boolean negation of [true, false, true] => [false, true, false]
-// const negatedBooleansOf = function (booleans) { };
+// boolean negation of [true, false, true] => [false, true, false]
+const negatedBooleansOf = function (booleans) {
+  return booleans.map(function (boolean) {
+    return !boolean;
+  });
+};
 
 // // character codes of ["a", "b", "c"] => [97, 98, 99]
 // // Use the `charCodeAt` method on each string
