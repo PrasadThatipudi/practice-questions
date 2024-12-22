@@ -49,12 +49,18 @@ const reversedStringsOf = function (strings) {
 };
 
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
-const doubleLetterWord = function ([...string]) {
-  return string.map(function (char) { return char.repeat(2); }).join("");
+const stringMap = function (mapper) {
+  return function (string) {
+    return string.split("").map(mapper).join("");
+  };
+};
+
+const doubleLetterChar = function (char) {
+  return char.repeat(2);
 };
 
 const doubleLettersOf = function (strings) {
-  return strings.map(doubleLetterWord);
+  return strings.map(stringMap(doubleLetterChar));
 };
 
 // boolean negation of [true, false, true] => [false, true, false]
