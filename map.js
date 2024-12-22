@@ -139,8 +139,14 @@ const countVowelsOf = function (strings) {
   return strings.map(vowelCount);
 };
 
-// // reverse arrays of [[1, 2, 3], [4, 5, 6]] => [[3, 2, 1], [6, 5, 4]]
-// const reversedArraysOf = function (arrays) { };
+// reverse arrays of [[1, 2, 3], [4, 5, 6]] => [[3, 2, 1], [6, 5, 4]]
+const reverseOfArray = function (array) {
+  return array.toReversed();
+};
+
+const reversedArraysOf = function (arrays) {
+  return arrays.map(reverseOfArray);
+};
 
 // // remove vowels from ["apple", "banana", "grape"] => ["ppl", "bnn", "grp"]
 // const withoutVowelsOf = function (strings) { };
