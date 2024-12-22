@@ -64,9 +64,13 @@ const negatedBooleansOf = function (booleans) {
   });
 };
 
-// // character codes of ["a", "b", "c"] => [97, 98, 99]
-// // Use the `charCodeAt` method on each string
-// const charCodesOf = function (strings) { };
+// character codes of ["a", "b", "c"] => [97, 98, 99]
+// Use the `charCodeAt` method on each string
+const charCodesOf = function (characters) {
+  return characters.map(function (char) {
+    return char.charCodeAt();
+  });
+};
 
 // // extract domain names from ["user1@gmail.com", "admin@yahoo.com"] => ["gmail.com", "yahoo.com"]
 // const domainNamesOf = function (emails) { };
