@@ -78,8 +78,12 @@ const filterHighGrades = function (students) {
   return students.filter(objectComparator(80, isGreaterThan, "grade"));
 };
 
-// // products that are in stock [{product: "apple", inStock: true}, {product: "banana", inStock: false}] => [{product: "apple", inStock: true}]
-// const filterInStockProducts = function (products) { };
+// products that are in stock [{product: "apple", inStock: true}, {product: "banana", inStock: false}] => [{product: "apple", inStock: true}]
+const filterInStockProducts = function (products) {
+  return products.filter(
+    objectComparator(true, isEqual, "inStock")
+  );
+};
 
 // // orders placed in the last 30 days [{orderDate: "2024-11-01"}, {orderDate: "2024-12-01"}] => [{orderDate: "2024-12-01"}]
 // const filterRecentOrders = function (orders) { };
