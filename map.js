@@ -24,14 +24,15 @@ const reversedStringsOf = (strings) => strings.map(reversedString);
 
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
 
-const stringMap = (mapper) => (string) => string.split("").map(mapper).join("");
+const stringMap = (mapper, separator) => (string) =>
+  string.split(separator).map(mapper).join(separator);
 
 const doubleLetterChar = function (char) {
   return char.repeat(2);
 };
 
 const doubleLettersOf = function (strings) {
-  return strings.map(stringMap(doubleLetterChar));
+  return strings.map(stringMap(doubleLetterChar, ""));
 };
 
 // boolean negation of [true, false, true] => [false, true, false]
