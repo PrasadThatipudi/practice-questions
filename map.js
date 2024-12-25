@@ -108,7 +108,12 @@ const stringReduce = (reducer) => (string) =>
 const uniqueCharactersOf = (strings) => strings.map(stringReduce(uniqueChars));
 
 // generate ranges from [3, 5, 2] => [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
-const rangesOf = function (numbers) {};
+const arrayFrom = (arrayLength, value) =>
+  Array.from({ length: arrayLength }, () => value);
+
+const rangeArray = (end) => [0].concat(arrayFrom(end, 1));
+const rangeFromZero = (end) => cumulativeSum(rangeArray(end));
+const rangesOf = (numbers) => numbers.map(rangeFromZero);
 
 // capitalize first letters of ["hello world", "goodbye moon"] => ["Hello World", "Goodbye Moon"]
 const capitalizedFirstLettersOf = function (strings) {};
