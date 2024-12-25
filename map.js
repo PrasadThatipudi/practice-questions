@@ -1,16 +1,13 @@
 // squares of [1, 2, 3] => [1, 4, 9]
 const square = (number) => Math.pow(number, 2);
-
 const squaresOf = (numbers) => numbers.map(square);
 
 // lengths of ["apple", "banana", "kiwi"] => [5, 6, 4]
 const stringLength = (string) => string.length;
-
 const lengthsOf = (strings) => strings.map(stringLength);
 
 // uppercase of ["hello", "world"] => ["HELLO", "WORLD"]
 const convertToUpperCase = (string) => string.toUpperCase();
-
 const uppercaseOf = (strings) => strings.map(convertToUpperCase);
 
 // first characters of ["apple", "banana", "kiwi"] => ["a", "b", "k"]
@@ -22,8 +19,8 @@ const firstCharactersOf = (strings) => strings.map((string) => string.at(0));
 const truthValuesOf = (numbers) => numbers.map((number) => !!number);
 
 // reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
-const reversedStringsOf = (strings) =>
-  strings.map((string) => [...string].reverse().join(""));
+const reversedString = (string) => [...string].reverse().join("");
+const reversedStringsOf = (strings) => strings.map(reversedString);
 
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
 
@@ -48,22 +45,18 @@ const charCodesOf = (characters) =>
 // extract domain names from ["user1@gmail.com", "admin@yahoo.com"] => ["gmail.com", "yahoo.com"]
 
 const extractDomainName = (email) => email.split("@").at(1);
-
 const domainNamesOf = (emails) => emails.map(extractDomainName);
 
 // split words in ["hello world", "goodbye moon"] => [["hello", "world"], ["goodbye", "moon"]]
 const wordsOf = (sentence) => sentence.split(" ");
-
 const splitWordsOf = (sentences) => sentences.map(wordsOf);
 
 // join arrays of [["a", "b"], ["c", "d"]] => ["ab", "cd"]
 const joinArray = (array) => array.join("");
-
 const joinedArraysOf = (arrayOfArrays) => arrayOfArrays.map(joinArray);
 
 // repeat strings in ["hi", "bye"] => ["hihi", "byebye"]
 const repeatedString = (string) => string.repeat(2);
-
 const repeatedStringsOf = (strings) => strings.map(repeatedString);
 
 // count vowels in ["apple", "banana", "grape"] => [2, 3, 2]
@@ -71,18 +64,13 @@ const stringFilter = (predicate) => (string) =>
   string.split("").filter(predicate).join("");
 
 const isVowel = (char) => "aeiou".includes(char.toLowerCase());
-
 const concatVowels = (string) => stringFilter(isVowel)(string);
-
 const vowelCount = (string) => stringLength(concatVowels(string));
-
 const countVowelsOf = (strings) => strings.map(vowelCount);
 
 // reverse arrays of [[1, 2, 3], [4, 5, 6]] => [[3, 2, 1], [6, 5, 4]]
 const reverseOfArray = (array) => array.toReversed();
-
 const reversedArraysOf = (arrays) => arrays.map(reverseOfArray);
-
 const complement =
   (f) =>
   (...args) =>
@@ -90,7 +78,6 @@ const complement =
 
 // remove vowels from ["apple", "banana", "grape"] => ["ppl", "bnn", "grp"]
 const isNotVowel = complement(isVowel);
-
 const withoutVowelsOf = (strings) => strings.map(stringFilter(isNotVowel));
 
 // cumulative sums of [[1, 2, 3], [4, 5, 6]] => [[1, 3, 6], [4, 9, 15]]
@@ -103,11 +90,11 @@ const nextCumulativeSum = function (cumulativeSums, number) {
 };
 
 const cumulativeSum = (numbers) => numbers.reduce(nextCumulativeSum, []);
-
 const cumulativeSumsOf = (arrays) => arrays.map(cumulativeSum);
 
 // reverse words in ["hello world", "goodbye moon"] => ["olleh dlrow", "eybdoog noom"]
-const reversedWordsOf = function (strings) {};
+const reverseWords = (words) => words.split(" ").map(reversedString).join(" ");
+const reversedWordsOf = (strings) => strings.map(reverseWords);
 
 // extract unique characters from ["apple", "banana", "grape"] => ["apl", "ban", "gra"]
 // Maintain the order of their first appearance in each string
