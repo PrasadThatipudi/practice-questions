@@ -1,59 +1,33 @@
 // squares of [1, 2, 3] => [1, 4, 9]
-const square = function (number) {
-  return Math.pow(number, 2);
-};
+const square = (number) => Math.pow(number, 2);
 
-const squaresOf = function (numbers) {
-  return numbers.map(square);
-};
+const squaresOf = (numbers) => numbers.map(square);
 
 // lengths of ["apple", "banana", "kiwi"] => [5, 6, 4]
-const stringLength = function (string) {
-  return string.length;
-};
+const stringLength = (string) => string.length;
 
-const lengthsOf = function (strings) {
-  return strings.map(stringLength);
-};
+const lengthsOf = (strings) => strings.map(stringLength);
 
 // uppercase of ["hello", "world"] => ["HELLO", "WORLD"]
-const convertToUpperCase = function (string) {
-  return string.toUpperCase();
-};
+const convertToUpperCase = (string) => string.toUpperCase();
 
-const uppercaseOf = function (strings) {
-  return strings.map(convertToUpperCase);
-};
+const uppercaseOf = (strings) => strings.map(convertToUpperCase);
 
 // first characters of ["apple", "banana", "kiwi"] => ["a", "b", "k"]
-const firstCharactersOf = function (strings) {
-  return strings.map(function (string) {
-    return string.at(0);
-  });
-};
+const firstCharactersOf = (strings) => strings.map((string) => string.at(0));
 
 // truth values of [0, 1, 2, 3] => [false, true, true, true]
 // Assume non-zero numbers are true, and zero is false
 
-const truthValuesOf = function (numbers) {
-  return numbers.map(function (number) {
-    return number !== 0;
-  });
-};
+const truthValuesOf = (numbers) => numbers.map((number) => !!number);
 
 // reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
-const reversedStringsOf = function (strings) {
-  return strings.map(function (string) {
-    return [...string].reverse().join("");
-  });
-};
+const reversedStringsOf = (strings) =>
+  strings.map((string) => [...string].reverse().join(""));
 
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
-const stringMap = function (mapper) {
-  return function (string) {
-    return string.split("").map(mapper).join("");
-  };
-};
+
+const stringMap = (mapper) => (string) => string.split("").map(mapper).join("");
 
 const doubleLetterChar = function (char) {
   return char.repeat(2);
@@ -64,100 +38,60 @@ const doubleLettersOf = function (strings) {
 };
 
 // boolean negation of [true, false, true] => [false, true, false]
-const negatedBooleansOf = function (booleans) {
-  return booleans.map(function (boolean) {
-    return !boolean;
-  });
-};
+const negatedBooleansOf = (booleans) => booleans.map((boolean) => !boolean);
 
 // character codes of ["a", "b", "c"] => [97, 98, 99]
 // Use the `charCodeAt` method on each string
-const charCodesOf = function (characters) {
-  return characters.map(function (char) {
-    return char.charCodeAt(0);
-  });
-};
+const charCodesOf = (characters) =>
+  characters.map((char) => char.charCodeAt(0));
 
 // extract domain names from ["user1@gmail.com", "admin@yahoo.com"] => ["gmail.com", "yahoo.com"]
-const extractDomainName = function (email) {
-  return email.slice(email.indexOf("@") + 1, email.length);
-};
 
-const domainNamesOf = function (emails) {
-  return emails.map(extractDomainName);
-};
+const extractDomainName = (email) => email.split("@").at(1);
+
+const domainNamesOf = (emails) => emails.map(extractDomainName);
 
 // split words in ["hello world", "goodbye moon"] => [["hello", "world"], ["goodbye", "moon"]]
-const wordsOf = function (sentence) {
-  return sentence.split(" ");
-};
+const wordsOf = (sentence) => sentence.split(" ");
 
-const splitWordsOf = function (sentences) {
-  return sentences.map(wordsOf);
-};
+const splitWordsOf = (sentences) => sentences.map(wordsOf);
 
 // join arrays of [["a", "b"], ["c", "d"]] => ["ab", "cd"]
-const joinArray = function (array) {
-  return array.join("");
-};
+const joinArray = (array) => array.join("");
 
-const joinedArraysOf = function (arrayOfArrays) {
-  return arrayOfArrays.map(joinArray);
-};
+const joinedArraysOf = (arrayOfArrays) => arrayOfArrays.map(joinArray);
 
 // repeat strings in ["hi", "bye"] => ["hihi", "byebye"]
-const repeatedString = function (string) {
-  return string.repeat(2);
-};
+const repeatedString = (string) => string.repeat(2);
 
-const repeatedStringsOf = function (strings) {
-  return strings.map(repeatedString);
-};
+const repeatedStringsOf = (strings) => strings.map(repeatedString);
 
 // count vowels in ["apple", "banana", "grape"] => [2, 3, 2]
-const stringFilter = function (predicate) {
-  return function (string) {
-    return string.split("").filter(predicate).join("");
-  };
-};
+const stringFilter = (predicate) => (string) =>
+  string.split("").filter(predicate).join("");
 
-const isVowel = function (char) {
-  const vowels = "aeiou";
+const isVowel = (char) => "aeiou".includes(char.toLowerCase());
 
-  return vowels.includes(char.toLowerCase());
-};
+const concatVowels = (string) => stringFilter(isVowel)(string);
 
-const concatVowels = function (string) {
-  return stringFilter(isVowel)(string);
-};
+const vowelCount = (string) => stringLength(concatVowels(string));
 
-const vowelCount = function (string) {
-  return stringLength(concatVowels(string));
-};
-
-const countVowelsOf = function (strings) {
-  return strings.map(vowelCount);
-};
+const countVowelsOf = (strings) => strings.map(vowelCount);
 
 // reverse arrays of [[1, 2, 3], [4, 5, 6]] => [[3, 2, 1], [6, 5, 4]]
-const reverseOfArray = function (array) {
-  return array.toReversed();
-};
+const reverseOfArray = (array) => array.toReversed();
 
-const reversedArraysOf = function (arrays) {
-  return arrays.map(reverseOfArray);
-};
+const reversedArraysOf = (arrays) => arrays.map(reverseOfArray);
 
-const complement = function (f) {
-  return function (...args) { return !f(...args); };
-};
+const complement =
+  (f) =>
+  (...args) =>
+    !f(...args);
 
 // remove vowels from ["apple", "banana", "grape"] => ["ppl", "bnn", "grp"]
 const isConsonant = complement(isVowel);
 
-const withoutVowelsOf = function (strings) {
-  return strings.map(stringFilter(isConsonant));
-};
+const withoutVowelsOf = (strings) => strings.map(stringFilter(isConsonant));
 
 // // cumulative sums of [[1, 2, 3], [4, 5, 6]] => [[1, 3, 6], [4, 9, 15]]
 // // Example: cumulative sum of [1, 2, 3] is [1, 1+2, 1+2+3]
@@ -335,7 +269,6 @@ const withoutVowelsOf = function (strings) {
 // // Steps: Use `flatMap` to combine all courses into a single array, then filter out duplicates.
 // const uniqueCourses = function (students) { };
 
-
 // // given a list of users, where each user has a list of messages, return an array of messages that contain the word "urgent" in [{ name: "Alice", messages: ["Urgent: Pay bills", "Meeting at 3"] }, { name: "Bob", messages: ["Urgent: Call customer", "Check email"] }] => ["Urgent: Pay bills", "Urgent: Call customer"]
 // // Steps: Use `flatMap` to combine all messages, then filter for "urgent" messages.
 // const urgentMessages = function (users) { };
@@ -368,31 +301,31 @@ const withoutVowelsOf = function (strings) {
 // // Steps: Use the index parameter in `map` to conditionally append "(old)".
 // const formatNamesWithAge = function (people) { };
 
-// // given an array of posts, each with a list of hashtags, return a flat list of all hashtags used in the posts in 
-// // [{ post: "Vacation", hashtags: ["#sunny", "#beach"] }, { post: "Dinner", hashtags: ["#food", "#yum"] }] 
+// // given an array of posts, each with a list of hashtags, return a flat list of all hashtags used in the posts in
+// // [{ post: "Vacation", hashtags: ["#sunny", "#beach"] }, { post: "Dinner", hashtags: ["#food", "#yum"] }]
 // // => ["#sunny", "#beach", "#food", "#yum"]
 // // Steps: Use `flatMap` to extract all hashtags and combine them into a single list.
 // const extractHashtags = function (posts) { };
 
-// // given an array of users, each with a list of followers, return an array where each user is paired with the number of their followers 
-// // [{ username: "alice", followers: ["bob", "charlie"] }, { username: "bob", followers: ["alice"] }] 
+// // given an array of users, each with a list of followers, return an array where each user is paired with the number of their followers
+// // [{ username: "alice", followers: ["bob", "charlie"] }, { username: "bob", followers: ["alice"] }]
 // // => [{ username: "alice", followersCount: 2 }, { username: "bob", followersCount: 1 }]
 // // Steps: Use `map` to create an object with the username and the count of followers.
 // const countFollowers = function (users) { };
 
-// // given an array of posts, each with a list of comments, return a new array of the comments with a "replied to" note added if the post index is even 
-// // [{ post: "Vacation", comments: ["Nice!", "Love it!"] }, { post: "Dinner", comments: ["Yummy", "Looks great!"] }] 
+// // given an array of posts, each with a list of comments, return a new array of the comments with a "replied to" note added if the post index is even
+// // [{ post: "Vacation", comments: ["Nice!", "Love it!"] }, { post: "Dinner", comments: ["Yummy", "Looks great!"] }]
 // // => [["Nice! replied to", "Love it! replied to"], ["Yummy", "Looks great!"]]
 // // Steps: Use `map` and the index to conditionally append "replied to" for even indexed posts.
 // const addReplyNoteToComments = function (posts) { };
 
-// // given an array of videos, each with a list of comments, return a new array where each comment is capitalized if the number of likes on the video is more than 1000 
-// // [{ video: "Dance", likes: 1200, comments: ["great video", "love this"] }, { video: "Food", likes: 800, comments: ["looks good", "yum"] }] 
+// // given an array of videos, each with a list of comments, return a new array where each comment is capitalized if the number of likes on the video is more than 1000
+// // [{ video: "Dance", likes: 1200, comments: ["great video", "love this"] }, { video: "Food", likes: 800, comments: ["looks good", "yum"] }]
 // // => [["Great video", "Love this"], ["looks good", "yum"]]
 // // Steps: Use `map` to capitalize comments only if the number of likes exceeds 1000.
 // const capitalizeCommentsIfPopular = function (videos) { };
 
-// // given an array of posts, each with a list of user tags, return a new array where each tag is transformed into an object with { tag: 'username', count: x }, 
+// // given an array of posts, each with a list of user tags, return a new array where each tag is transformed into an object with { tag: 'username', count: x },
 // // where x is the number of times the tag appears in the post's list of tags, in [{ post: "TikTok Challenge", tags: ["fun", "dance", "fun"] }, { post: "Viral Recipe", tags: ["recipe", "yum", "fun"] }]
 // // => [{ tag: "fun", count: 2 }, { tag: "dance", count: 1 }, { tag: "recipe", count: 1 }, { tag: "yum", count: 1 }]
 // // Steps: Use `map` to return objects with the tag and count, aggregating the counts based on the tags in each post.
@@ -451,17 +384,17 @@ const withoutVowelsOf = function (strings) {
 // const applySalesTax = function (products) { };
 
 // // given an array of user objects with `name` and `posts`, return an array of objects where each object contains the user's name and an array of post titles
-// // [{name: "Alice", posts: [{title: "Post 1"}, {title: "Post 2"}]}, {name: "Bob", posts: [{title: "Post 3"}]}] 
+// // [{name: "Alice", posts: [{title: "Post 1"}, {title: "Post 2"}]}, {name: "Bob", posts: [{title: "Post 3"}]}]
 // // => [{name: "Alice", posts: ["Post 1", "Post 2"]}, {name: "Bob", posts: ["Post 3"]}]
 // const getUserPostTitles = function (users) { };
 
 // // given an array of products, where each product contains a `name`, `price`, and `tags` array, return a new array of products where each product contains its name and an array of uppercased tags
-// // [{name: "Shirt", price: 20, tags: ["cotton", "summer"]}, {name: "Shoes", price: 50, tags: ["leather", "winter"]}] 
+// // [{name: "Shirt", price: 20, tags: ["cotton", "summer"]}, {name: "Shoes", price: 50, tags: ["leather", "winter"]}]
 // // => [{name: "Shirt", tags: ["COTTON", "SUMMER"]}, {name: "Shoes", tags: ["LEATHER", "WINTER"]}]
 // const formatProductTags = function (products) { };
 
 // // given an array of categories where each category has a `categoryName` and `items` array, return a new array where each item is an object with the category name and an array of item names
-// // [{categoryName: "Fruits", items: [{name: "Apple"}, {name: "Banana"}]}, {categoryName: "Vegetables", items: [{name: "Carrot"}]}] 
+// // [{categoryName: "Fruits", items: [{name: "Apple"}, {name: "Banana"}]}, {categoryName: "Vegetables", items: [{name: "Carrot"}]}]
 // // => [{categoryName: "Fruits", items: ["Apple", "Banana"]}, {categoryName: "Vegetables", items: ["Carrot"]}]
 // const getCategoryItems = function (categories) { };
 
