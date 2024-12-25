@@ -98,7 +98,14 @@ const reversedWordsOf = (strings) => strings.map(reverseWords);
 
 // extract unique characters from ["apple", "banana", "grape"] => ["apl", "ban", "gra"]
 // Maintain the order of their first appearance in each string
-const uniqueCharactersOf = function (strings) {};
+const uniqueChars = (unique, char) => {
+  return unique.includes(char) ? unique : [...unique, char];
+};
+
+const stringReduce = (reducer) => (string) =>
+  string.split("").reduce(reducer).join("");
+
+const uniqueCharactersOf = (strings) => strings.map(stringReduce(uniqueChars));
 
 // generate ranges from [3, 5, 2] => [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
 const rangesOf = function (numbers) {};
