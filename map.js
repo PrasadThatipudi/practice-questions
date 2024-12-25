@@ -94,8 +94,9 @@ const cumulativeSum = (numbers) => numbers.reduce(nextCumulativeSum, []);
 const cumulativeSumsOf = (arrays) => arrays.map(cumulativeSum);
 
 // reverse words in ["hello world", "goodbye moon"] => ["olleh dlrow", "eybdoog noom"]
-const reverseWords = (words) => words.split(" ").map(reversedString).join(" ");
-const reversedWordsOf = (strings) => strings.map(reverseWords);
+// const reverseWords = (words) => words.split(" ").map(reversedString).join(" ");
+const reversedWordsOf = (strings) =>
+  strings.map(stringMap(reversedString, " "));
 
 // extract unique characters from ["apple", "banana", "grape"] => ["apl", "ban", "gra"]
 // Maintain the order of their first appearance in each string
@@ -119,17 +120,20 @@ const rangesOf = (numbers) => numbers.map(rangeFromZero);
 // capitalize first letters of ["hello world", "goodbye moon"] => ["Hello World", "Goodbye Moon"]
 const capitalize = (word) =>
   convertToUpperCase(word.at(0)).concat(word.slice(1, word.length));
-const capitalizedString = (word) => word.split(" ").map(capitalize).join(" ");
-const capitalizedFirstLettersOf = (strings) => strings.map(capitalizedString);
+const capitalizedFirstLettersOf = (strings) =>
+  strings.map(stringMap(capitalize, " "));
 
 // find word lengths in ["apple pie", "banana split"] => [[5, 3], [6, 5]]
-const wordLengthsOf = function (strings) {};
+const wordLengths = (words) => words.split(" ").map(stringLength);
+const wordLengthsOf = (strings) => strings.map(wordLengths);
 
 // flatten nested arrays of [[1, [2, 3]], [4, [5, 6]]] => [[1, 2, 3], [4, 5, 6]]
-const flattenedArraysOf = function (arrays) {};
+const flatenArray = (array) => array.flat(Infinity);
+const flattenedArraysOf = (arrays) => arrays.map(flatenArray);
 
 // sort letters in ["cat", "bat", "rat"] alphabetically => ["act", "abt", "art"]
-const sortedLettersOf = function (strings) {};
+const sortLetters = (letters) => letters.split("").sort().join("");
+const sortedLettersOf = (strings) => strings.map(sortLetters);
 
 // wrap strings in brackets ["apple", "banana"] => ["[apple]", "[banana]"]
 const wrappedStringsOf = function (strings) {};
