@@ -111,12 +111,15 @@ const uniqueCharactersOf = (strings) => strings.map(stringReduce(uniqueChars));
 const arrayFrom = (arrayLength, value) =>
   Array.from({ length: arrayLength }, () => value);
 
-const rangeArray = (end) => [0].concat(arrayFrom(end, 1));
+const rangeArray = (end) => [0, ...arrayFrom(end - 1, 1)];
 const rangeFromZero = (end) => cumulativeSum(rangeArray(end));
 const rangesOf = (numbers) => numbers.map(rangeFromZero);
 
 // capitalize first letters of ["hello world", "goodbye moon"] => ["Hello World", "Goodbye Moon"]
-const capitalizedFirstLettersOf = function (strings) {};
+const capitalize = (word) =>
+  convertToUpperCase(word.at(0)).concat(word.slice(1, word.length));
+const capitalizedString = (word) => word.split(" ").map(capitalize).join(" ");
+const capitalizedFirstLettersOf = (strings) => strings.map(capitalizedString);
 
 // find word lengths in ["apple pie", "banana split"] => [[5, 3], [6, 5]]
 const wordLengthsOf = function (strings) {};
